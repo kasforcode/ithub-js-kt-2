@@ -23,7 +23,10 @@ export function processWord(word, ignoredCharacted) {
 
   let result = "";
 
-  // TODO
-
+  for (let i = 0; i < word.length; i++) {
+    if (word[i].toLowerCase() !== ignoredCharacted.toLowerCase()) {
+      result += word[i];
+    }
+  }
   return result;
 }
