@@ -7,30 +7,28 @@ export function isPalindrome(word) {
   if (word === null) {
     throw new Error("Пользователь отменил ввод");
   }
-  if (typeof word !== "string") {
+  if (Number.isInteger(word)) {
     throw new Error("Некорректные входные данные");
   }
-  const trimword = word.trim();
-  if (trimword.includes(" ")) {
+  if (word.includes(" ")) {
     throw new Error("Введено несколько слов");
   }
 
-  if (!/^[a-zA-Zа-яА-ЯёЁ]+$/.test(trimword)) {
+  if (!/^[a-zA-Zа-яА-ЯёЁ]+$/.test(word)) {
     throw new Error("Некорректные входные данные");
   }
+
   let result = "";
   if (word.length === 1) {
     return word + " - не палиндром";
   }
 
-  const lowered = word.toLowerCase();
-  const length = lowered.length;
+  const str = word.toLowerCase();
 
-  for (let i = 0; i < Math.floor(length / 2); i++) {
-    if (lowered[i] !== lowered[length - 1 - i]) {
-      return (result = word + " - не палиндром");
+  for (let i = 0, j = str.length - 1; i < j; i++, j--) {
+    if (str[i] !== str[j]) {
+      return `${word} - не палиндром`;
     }
   }
-
-  return (result = word + " - палиндром");
+  return `${word} - палиндром`;
 }
