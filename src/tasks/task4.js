@@ -20,12 +20,12 @@ export function isPalindrome(word) {
     throw new Error("Некорректные входные данные");
   }
 
+  const str = word.toLowerCase();
+
   let result = "";
   if (word.length === 1) {
-    return word + " - не палиндром";
+    return `${word} - не палиндром`;
   }
-
-  const str = word.toLowerCase();
 
   for (let i = 0, j = str.length - 1; i < j; i++, j--) {
     if (str[i] !== str[j]) {
