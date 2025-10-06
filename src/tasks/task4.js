@@ -7,9 +7,11 @@ export function isPalindrome(word) {
   if (word === null) {
     throw new Error("Пользователь отменил ввод");
   }
-  if (Number.isInteger(word)) {
-    throw new Error("Некорректные входные данные");
-  }
+
+  // if (!isNaN(Number(word))) {
+  //   throw new Error("Некорректные входные данные");
+  // }
+
   if (word.includes(" ")) {
     throw new Error("Введено несколько слов");
   }
